@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+.data/
+data/
+optiflow.db
+.DS_Store
+.idea/
+.ipynb_checkpoints/
