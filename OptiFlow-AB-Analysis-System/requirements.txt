@@ -1,0 +1,12 @@
+faker
+pandas
+numpy
+scipy
+statsmodels
+matplotlib
+plotly
+streamlit
+dash
+sqlalchemy
+psycopg2-binary
+pytest
