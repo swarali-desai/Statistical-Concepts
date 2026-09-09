@@ -12,7 +12,7 @@ import numpy as np
 import pandas as pd
 from scipy import stats
 from statsmodels.stats.power import NormalIndPower
-from statsmodels.stats.proportion import proportions_effectsize
+from statsmodels.stats.proportion import proportion_effectsize
 
 
 @dataclass
@@ -47,7 +47,7 @@ def calculate_sample_size(
     if not (0 <= p_control <= 1) or not (0 <= p_treatment <= 1):
         raise ValueError("Baseline and baseline+MDE must both be between 0 and 1.")
 
-    effect_size = proportions_effectsize(p_control, p_treatment)
+    effect_size = proportion_effectsize(p_control, p_treatment)
 
     # ratio = n_treatment / n_control
     ratio = allocation_treatment / (1 - allocation_treatment)

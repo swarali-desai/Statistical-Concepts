@@ -4,9 +4,11 @@ numpy
 scipy
 statsmodels
 matplotlib
+seaborn
 plotly
 streamlit
-dash
 sqlalchemy
-psycopg2-binary
 pytest
+jupyter
+ipykernel
+nbconvert

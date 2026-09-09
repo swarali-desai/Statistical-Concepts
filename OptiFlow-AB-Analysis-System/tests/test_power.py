@@ -20,12 +20,12 @@ def test_calculate_sample_size_decreases_with_larger_mde():
 
 def test_randomization_checks_pass_for_balanced_split():
     """A balanced dataset should pass allocation and covariate checks."""
-    df = pd.DataFrame(
-        {
-            "variant": ["A", "B"] * 500,
-            "device_type": ["mobile", "desktop"] * 500,
-        }
-    )
+    # A fully-crossed design (every variant x device_type combination
+    # repeated equally often) is exactly balanced by construction, unlike
+    # e.g. ["A", "B"] * n paired with ["mobile", "desktop"] * n, which is
+    # perfectly collinear and would correctly fail a balance check.
+    combos = [(v, d) for v in ("A", "B") for d in ("mobile", "desktop")] * 250
+    df = pd.DataFrame(combos, columns=["variant", "device_type"])
 
     results = run_randomization_checks(df, covariate_cols=["device_type"], alpha=0.05)
 
